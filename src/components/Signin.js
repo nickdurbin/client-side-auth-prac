@@ -20,6 +20,7 @@ function Signin(props) {
     api().post('/signin', data)
       .then(res => {
         localStorage.setItem("token", res.data.token)
+        props.history.push('/account')
       })
       .catch(err => {
         setError(err.response.data.message)
